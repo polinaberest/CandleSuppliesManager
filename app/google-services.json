@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "84083390920",
+    "project_id": "candlesuppliesmanager",
+    "storage_bucket": "candlesuppliesmanager.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:84083390920:android:daceed80a94cf979be68fd",
+        "android_client_info": {
+          "package_name": "com.example.candlesuppliesmanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "84083390920-ovgfq2q8lcp14ral47nqbadi78shm24s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.candlesuppliesmanager",
+            "certificate_hash": "466657be21197e2d3b7ba0fff9a54a98a6d1521e"
+          }
+        },
+        {
+          "client_id": "84083390920-6ijpjgjml19qm1ihh954gehfjeq2r751.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDx3LZqsvZKy6HoI_A6HW24Dy6-QfSYVmc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "84083390920-6ijpjgjml19qm1ihh954gehfjeq2r751.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
