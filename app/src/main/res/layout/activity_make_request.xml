@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MakeRequestActivity"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout_makeRequest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:liftOnScroll="true"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/make_request_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/make_request_toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/comfortaa"
+                    android:text="Нова заявка"
+                    android:textColor="#000000"
+                    android:textSize="30sp" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_big_candles"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_bar_layout_makeRequest"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="20dp">
+
+        <TextView
+            android:id="@+id/label_big_candles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/comfortaa"
+            android:text="Великих свічок:"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <EditText
+            android:id="@+id/amount_big_candles"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_design"
+            android:fontFamily="@font/comfortaa"
+            android:inputType="number"
+            android:padding="15sp"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="#C3000000"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_mid_candles"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_big_candles"
+        android:layout_marginTop="5dp"
+        android:layout_marginHorizontal="20dp">
+
+        <TextView
+            android:id="@+id/label_mid_candles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/comfortaa"
+            android:text="Середніх свічок:"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <EditText
+            android:id="@+id/amount_mid_candles"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_design"
+            android:fontFamily="@font/comfortaa"
+            android:inputType="number"
+            android:padding="15sp"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="#C3000000"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_small_candles"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_mid_candles"
+        android:layout_marginTop="5dp"
+        android:layout_marginHorizontal="20dp">
+
+        <TextView
+            android:id="@+id/label_small_candles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/comfortaa"
+            android:text="Маленьких свічок:"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <EditText
+            android:id="@+id/amount_small_candles"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_design"
+            android:fontFamily="@font/comfortaa"
+            android:inputType="number"
+            android:padding="15sp"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="#C3000000"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/login_reciever_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_small_candles"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="0dp"
+        android:hint="ПІБ отримувача"
+        android:inputType="text"
+        android:paddingVertical="15dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textColorHint="#9C9C9C"
+        android:fontFamily="@font/comfortaa"/>
+
+    <EditText
+        android:id="@+id/login_phone_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_reciever_name"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="0dp"
+        android:hint="Телефон отримувача"
+        android:inputType="number"
+        android:paddingVertical="15dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textColorHint="#9C9C9C"
+        android:fontFamily="@font/comfortaa"/>
+
+
+    <Spinner
+        android:id="@+id/cities_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cities_search"
+        android:contentDescription="Оберіть місто"
+        android:padding="15dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="5dp"/>
+
+            <SearchView
+                android:id="@+id/cities_search"
+                android:queryHint="Населений пункт"
+                android:fontFamily="@font/comfortaa"
+                android:layout_marginHorizontal="20dp"
+                android:layout_below="@id/login_phone_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+    <Spinner
+        android:id="@+id/branches_spinner"
+        android:contentDescription="Оберіть відділення"
+        android:layout_below="@id/cities_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="5dp"
+        android:padding="15dp"
+        />
+
+    <TextView
+        android:id="@+id/label_role_group"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/branches_spinner"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/comfortaa"
+        android:text="Отримувач свічок:"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_marginLeft="20dp" />
+
+    <RadioGroup
+        android:id="@+id/role_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="10dp"
+        android:fontFamily="@font/comfortaa"
+        android:layout_below="@id/label_role_group">
+
+        <RadioButton
+        android:id="@+id/military"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Військовослужбовець"/>
+
+        <RadioButton
+        android:id="@+id/relative"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Родич військовослужбовця"/>
+
+        <RadioButton
+            android:id="@+id/volunteer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Волонтер"/>
+
+        <RadioButton
+            android:id="@+id/other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Відіграє іншу роль"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/make_request_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/role_group"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="20dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/comfortaa"
+        android:padding="10dp"
+        android:text="Відправити на розгляд"
+        android:textSize="20sp"
+        android:textColor="@color/black"/>
+        </RelativeLayout>
+</ScrollView>
+</RelativeLayout>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrationActivity">
+    <ImageView
+        android:id="@+id/reg_img"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="0px"
+        android:layout_marginTop="0dp"
+        android:paddingTop="0px"
+        android:paddingBottom="0px"
+        android:src="@drawable/auth" />
+
+    <TextView
+        android:id="@+id/reg_welcome_text"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_below="@id/reg_img"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/comfortaa_light"
+        android:layout_marginBottom="15dp"
+        android:text="Зареєструйтеся в застосунку:"
+        android:textAlignment="center"
+        android:textColor="#E1000000"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/reg_phone_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/reg_welcome_text"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/input_design"
+        android:hint="Введіть номер телефону"
+        android:inputType="number"
+        android:padding="15dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textColorHint="#9C9C9C"
+        android:fontFamily="@font/comfortaa"/>
+
+    <EditText
+        android:id="@+id/reg_password_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/reg_phone_input"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/input_design"
+        android:hint="Введіть пароль"
+        android:inputType="textPassword"
+        android:padding="15dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textColorHint="#9C9C9C"
+        android:fontFamily="@font/comfortaa"/>
+
+    <TextView
+        android:id="@+id/motto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/comfortaa_light"
+        android:layout_marginBottom="15dp"
+        android:text="Крутимо до Перемоги!"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+
+    <Button
+        android:id="@+id/register_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/reg_password_input"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/comfortaa"
+        android:padding="10dp"
+        android:text="Зареєструватися"
+        android:textSize="20sp"
+        android:textColor="@color/black"/>
+
+</RelativeLayout>

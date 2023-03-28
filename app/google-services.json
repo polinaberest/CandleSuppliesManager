@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "84083390920",
+    "firebase_url": "https://candlesuppliesmanager-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "candlesuppliesmanager",
     "storage_bucket": "candlesuppliesmanager.appspot.com"
   },

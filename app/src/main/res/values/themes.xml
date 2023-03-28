@@ -6,11 +6,16 @@
         <item name="colorPrimaryVariant">@color/light_orange</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/light_yellow</item>
-        <item name="colorSecondaryVariant">@color/dark_yellow</item>
+        <item name="colorSecondary">@color/light_orange</item>
+        <item name="colorSecondaryVariant">@color/yellow</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">@color/black</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textViewStyle">@style/ComfortaaFontStyle</item>
+        <!-- Add other theme attributes as needed -->
+    </style>
+
 </resources>
