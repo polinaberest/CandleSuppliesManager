@@ -165,7 +165,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <EditText
-        android:id="@+id/login_reciever_name"
+        android:id="@+id/reciever_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/layout_small_candles"
@@ -180,10 +180,10 @@
         android:fontFamily="@font/comfortaa"/>
 
     <EditText
-        android:id="@+id/login_phone_input"
+        android:id="@+id/reciever_phone_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/login_reciever_name"
+        android:layout_below="@id/reciever_name"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="0dp"
         android:hint="Телефон отримувача"
@@ -210,7 +210,7 @@
                 android:queryHint="Населений пункт"
                 android:fontFamily="@font/comfortaa"
                 android:layout_marginHorizontal="20dp"
-                android:layout_below="@id/login_phone_input"
+                android:layout_below="@id/reciever_phone_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
