@@ -2,8 +2,11 @@ package com.example.candlesuppliesmanager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
@@ -19,6 +22,7 @@ import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.candlesuppliesmanager.Statics.CandleInfo;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
@@ -47,6 +51,8 @@ public class MakeRequestActivity extends AppCompatActivity {
     private SearchView citiesSearch;
     private NovaPoshtaApi novaPoshtaApi;
     private String userPhone, recieverPhone, recieverName, selectedCity, selectedWarehouse, formattedDateTime, role, key;
+
+    private String message;
     private boolean isSeen = false, isApproved = false;
     private int amountBig = 0, amountMid = 0, amountSmall = 0, total = 0;
     private Button makeRequestBTN;
@@ -76,7 +82,7 @@ public class MakeRequestActivity extends AppCompatActivity {
             public void onClick(View view) {
                 fillFieldsByValue();
                 if(checkIfRequestCompleted()){
-                    Toast.makeText(view.getContext(), "ОК!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(view.getContext(), "ОК!", Toast.LENGTH_SHORT).show();
 
                     MakeRequest();
                 }
@@ -121,7 +127,32 @@ public class MakeRequestActivity extends AppCompatActivity {
                 if(task.isSuccessful())
                 {
                     //тут повідомлення користувачеві з підрахунком ваги
-                    Toast.makeText(MakeRequestActivity.this, "ЗАЯВКУ ДОДАНО!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, text, Toast.LENGTH_LONG).show();
+                    AlertDialog.Builder alertD = new AlertDialog.Builder(MakeRequestActivity.this);
+
+                    int totalWeight = CandleInfo.getSmallWeight(amountSmall) + CandleInfo.getMidWeight(amountMid) + CandleInfo.getBigWeight(amountBig);
+                    int parcelsAmount = CandleInfo.getParcelsAmount(CandleInfo.getSmallWeight(amountSmall), CandleInfo.getMidWeight(amountMid), CandleInfo.getBigWeight(amountBig));
+
+                    message = "Орієнтовна вага замовлення: " + totalWeight + " кг.\n";
+                    if(parcelsAmount==1){
+                        message += "Розраховуйте, що доставку буде здійснено мінімум " + parcelsAmount + "-єю посилкою.";
+                    }else{
+                        message += "Розраховуйте, що доставку буде здійснено мінімум " + parcelsAmount + "-ма посилками.";
+                    }
+
+
+                    alertD.setTitle("Про посилку");
+                    alertD.setMessage(message);
+                    alertD.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Intent homeInt = new Intent(MakeRequestActivity.this, HomeActivity.class);
+                            startActivity(homeInt);
+                        }
+                    });
+
+                    AlertDialog dialog = alertD.create();
+                    dialog.show();
                 }
                 else{
                     Toast.makeText(MakeRequestActivity.this, "Щось не за планом", Toast.LENGTH_SHORT).show();

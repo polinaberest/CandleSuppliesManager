@@ -7,22 +7,22 @@ final public class CandleInfo {
 
     static final int maxParcelWeight = 12;
 
-    static int getBigWeight(int amount)
+    public static int getBigWeight(int amount)
     {
         return amount*bigWeight;
     }
 
-    static int getMidWeight(int amount)
+    public static int getMidWeight(int amount)
     {
         return amount*midWeight;
     }
 
-    static int getSmallWeight(int amount)
+    public static int getSmallWeight(int amount)
     {
         return amount*smallWeight;
     }
 
-    static int getParcelsAmount(int wSmall, int wMid, int wBig)
+    public static int getParcelsAmount(int wSmall, int wMid, int wBig)
     {
         int totalWeight = wSmall + wMid + wBig;
         return (int)Math.ceil((double)totalWeight/maxParcelWeight);
