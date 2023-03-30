@@ -1,30 +1,30 @@
 package com.example.candlesuppliesmanager.Statics;
 
 final public class CandleInfo {
-    static final int bigWeight = 3;
-    static final int midWeight = 2;
-    static final int smallWeight = 1;
+    static final double bigWeight = 0.4;
+    static final double midWeight = 0.3;
+    static final double smallWeight = 0.08;
 
     static final int maxParcelWeight = 12;
 
-    public static int getBigWeight(int amount)
+    public static double getBigWeight(int amount)
     {
         return amount*bigWeight;
     }
 
-    public static int getMidWeight(int amount)
+    public static double getMidWeight(int amount)
     {
         return amount*midWeight;
     }
 
-    public static int getSmallWeight(int amount)
+    public static double getSmallWeight(int amount)
     {
         return amount*smallWeight;
     }
 
-    public static int getParcelsAmount(int wSmall, int wMid, int wBig)
+    public static int getParcelsAmount(double wSmall, double wMid, double wBig)
     {
-        int totalWeight = wSmall + wMid + wBig;
-        return (int)Math.ceil((double)totalWeight/maxParcelWeight);
+        double totalWeight = wSmall + wMid + wBig;
+        return (int)Math.ceil(totalWeight/maxParcelWeight);
     }
 }

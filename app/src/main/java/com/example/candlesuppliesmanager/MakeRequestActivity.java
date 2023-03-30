@@ -130,10 +130,10 @@ public class MakeRequestActivity extends AppCompatActivity {
                     //Toast.makeText(this, text, Toast.LENGTH_LONG).show();
                     AlertDialog.Builder alertD = new AlertDialog.Builder(MakeRequestActivity.this);
 
-                    int totalWeight = CandleInfo.getSmallWeight(amountSmall) + CandleInfo.getMidWeight(amountMid) + CandleInfo.getBigWeight(amountBig);
+                    double totalWeight = CandleInfo.getSmallWeight(amountSmall) + CandleInfo.getMidWeight(amountMid) + CandleInfo.getBigWeight(amountBig);
                     int parcelsAmount = CandleInfo.getParcelsAmount(CandleInfo.getSmallWeight(amountSmall), CandleInfo.getMidWeight(amountMid), CandleInfo.getBigWeight(amountBig));
 
-                    message = "Орієнтовна вага замовлення: " + totalWeight + " кг.\n";
+                    message = "Орієнтовна вага замовлення: " + Math.round(totalWeight) + " кг.\n";
                     if(parcelsAmount==1){
                         message += "Розраховуйте, що доставку буде здійснено мінімум " + parcelsAmount + "-єю посилкою.";
                     }else{
