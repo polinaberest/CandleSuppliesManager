@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
+
 import io.paperdb.Paper;
 
 public class HomeActivity extends AppCompatActivity {
@@ -17,6 +20,10 @@ public class HomeActivity extends AppCompatActivity {
     private String userPhone;
     private ImageView logoutBtn;
     private ImageView plusRequestBtn;
+
+    private DatabaseReference databaseRef;
+
+    private Query query;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
