@@ -55,15 +55,35 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <TextView
+        android:id="@+id/no_requests_made_textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:layout_marginHorizontal="20dp"
-        android:paddingVertical="20dp"
-        android:fontFamily="@font/comfortaa"
         android:layout_below="@id/app_bar_layout_home"
+        android:layout_marginHorizontal="20dp"
+        android:fontFamily="@font/comfortaa"
+        android:paddingVertical="20dp"
         android:text="У-упс! Порожньо! \nВи ще не створювали заявок."
-        android:textColor="#5E5E5E" />
+        android:textColor="#5E5E5E"
+        android:textSize="20sp"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_bar_layout_home">
+
+        <!-- add a LinearLayout inside ScrollView -->
+        <LinearLayout
+            android:id="@+id/see_requests_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- add your content here -->
+
+        </LinearLayout>
+
+    </ScrollView>
 
     <ImageView
         android:id="@+id/plus_request_btn"
