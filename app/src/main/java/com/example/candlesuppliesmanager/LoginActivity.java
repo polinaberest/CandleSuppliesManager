@@ -1,8 +1,10 @@
 package com.example.candlesuppliesmanager;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.content.Intent;
 import android.text.TextUtils;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.candlesuppliesmanager.Model.User;
 import com.example.candlesuppliesmanager.Prevalent.Prevalent;
+import com.example.candlesuppliesmanager.Statics.CandleInfo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginButton;
     private EditText loginPhoneInput, loginPasswordInput;
     private CheckBox chBoxRememberMe;
-
+    private boolean canUseBiometrics;
     private TextView adminLink, clientLink;
     private  String parentDBName = "Users";
 
@@ -75,6 +78,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void loginUser()
     {

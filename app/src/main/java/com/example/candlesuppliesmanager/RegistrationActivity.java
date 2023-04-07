@@ -28,6 +28,8 @@ public class RegistrationActivity extends AppCompatActivity {
     private Button regButton;
     private EditText regPhoneInput, regPasswordInput;
 
+   //private boolean canUseBiometrics = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +86,7 @@ public class RegistrationActivity extends AppCompatActivity {
                                         Toast.makeText(RegistrationActivity.this, "Ви успішно зареєструвалися!", Toast.LENGTH_SHORT);
 
                                         Intent loginIntent = new Intent(RegistrationActivity.this, LoginActivity.class);
+                                        //loginIntent.putExtra("useBiometrics", canUseBiometrics);
                                         startActivity(loginIntent);
                                     }
                                     else {
