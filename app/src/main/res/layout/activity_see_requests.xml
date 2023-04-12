@@ -6,14 +6,83 @@
     android:layout_height="match_parent"
     tools:context=".SeeRequestsActivity">
 
-    <Button
-        android:id="@+id/logout_admin_btn"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout_see_requests"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:liftOnScroll="true"
+        >
 
-        android:layout_margin="15dp"
-        android:background="@drawable/logout_btn_icon"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/see_requests_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/see_requests_toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/comfortaa"
+                    android:text="Поточні заявки"
+                    android:textColor="#000000"
+                    android:textSize="30sp" />
+
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <ImageView
+                android:id="@+id/logout_admin_btn"
+                android:layout_width="92dp"
+                android:layout_height="48dp"
+                app:layout_constraintEnd_toEndOf="@id/see_requests_toolbar"
+                app:layout_constraintBottom_toBottomOf="@id/see_requests_toolbar"
+                android:layout_marginBottom="15dp"
+                app:srcCompat="@drawable/logout_btn_icon"
+                tools:layout_editor_absoluteX="319dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/no_requests_usermade_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_bar_layout_see_requests"
+        android:layout_marginHorizontal="20dp"
+        android:fontFamily="@font/comfortaa"
+        android:paddingVertical="20dp"
+        android:text="У-упс! Порожньо! \nВи ще не створювали заявок."
+        android:textColor="#5E5E5E"
+        android:textSize="20sp"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_bar_layout_see_requests">
+
+        <!-- add a LinearLayout inside ScrollView -->
+        <LinearLayout
+            android:id="@+id/see_user_requests_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- add your content here -->
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </RelativeLayout>

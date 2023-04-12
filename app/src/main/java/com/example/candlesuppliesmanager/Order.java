@@ -47,6 +47,46 @@ public class Order implements Comparable<Order> {
         return state;
     }
 
+    public String getUserPhone() {
+        return userPhone;
+    }
+
+    public String getRecieverName() {
+        return recieverName;
+    }
+
+    public String getRecieverPhone() {
+        return recieverPhone;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getWarehouse() {
+        return warehouse;
+    }
+
+    public int getAmountBig() {
+        return amountBig;
+    }
+
+    public int getAmountMid() {
+        return amountMid;
+    }
+
+    public int getAmountSmall() {
+        return amountSmall;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
     public void setState()
     {
         state = "не переглянута";
@@ -63,6 +103,20 @@ public class Order implements Comparable<Order> {
     @Override
     public String toString() {
         return "Заявка від " + dateTime + " : " + state + "\n"  + total + " свічок \nу " + warehouse + ", " + city;
+    }
+
+    public String toStringAdmins(){
+        return "Заявка від " + dateTime + "\n"  + total + " свічок \nу " + warehouse + ", " + city + "\nотримувач: " + role;
+    }
+
+    public String toStringFull(){
+        return "Заявка від " + dateTime + "\nна "  + total + " свічок: \n"
+                +((amountBig == 0)?"":(amountBig + " великих\n"))
+                +((amountMid == 0)?"":(amountMid + " середніх\n"))
+                +((amountSmall == 0)?"":(amountSmall + " маленьких\n"))
+                + "\n" + warehouse + ", " + city +
+                "\n\nОтримувач: " + role + ", " + recieverName + "\n"
+                +recieverPhone;
     }
 }
 
