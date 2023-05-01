@@ -102,15 +102,15 @@ public class Order implements Comparable<Order> {
     @NonNull
     @Override
     public String toString() {
-        return "Заявка від " + dateTime + " : " + state + "\n"  + total + " свічок \nу " + warehouse + ", " + city;
+        return "Заявка від " + dateTime + " : " + state + "\n" + "\uD83D\uDD25"  + total + " свічок \nу " + warehouse + ", " + city;
     }
 
     public String toStringAdmins(){
-        return "Заявка від " + dateTime + "\n"  + total + " свічок \nу " + warehouse + ", " + city + "\nотримувач: " + role;
+        return "Заявка від " + dateTime + "\n" + "\uD83D\uDD25" + total + " свічок \nу " + warehouse + ", " + city + "\nотримувач: " + role;
     }
 
     public String toStringFull(){
-        return "Заявка від " + dateTime + "\nна "  + total + " свічок: \n"
+        return "Заявка від " + dateTime + "\n" + "\uD83D\uDD25" + "на "  + total + " свічок: \n"
                 +((amountBig == 0)?"":(amountBig + " великих\n"))
                 +((amountMid == 0)?"":(amountMid + " середніх\n"))
                 +((amountSmall == 0)?"":(amountSmall + " маленьких\n"))

@@ -180,7 +180,7 @@ public class SeeRequestsActivity extends AppCompatActivity {
                     AlertDialog.Builder builder = new AlertDialog.Builder(SeeRequestsActivity.this);
                     builder.setTitle(title);
                     builder.setMessage(description);
-                    builder.setPositiveButton("Підтвердити", new DialogInterface.OnClickListener() {
+                    builder.setPositiveButton("Підтвердити \u2705", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             // Обработка нажатия кнопки "Подтвердить"
@@ -194,7 +194,7 @@ public class SeeRequestsActivity extends AppCompatActivity {
 
 
 
-                    builder.setNegativeButton("Відхилити", new DialogInterface.OnClickListener() {
+                    builder.setNegativeButton("Відхилити \u274C", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             // Обработка нажатия кнопки "Отменить"
