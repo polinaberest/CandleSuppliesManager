@@ -34,7 +34,7 @@ import io.paperdb.Paper;
 public class HomeActivity extends AppCompatActivity {
 
     private String userPhone;
-    private ImageView logoutBtn, plusRequestBtn;
+    private ImageView logoutBtn, plusRequestBtn, changeData;
 
     private TextView noRequestsText;
     List<Order> orderList;
@@ -50,6 +50,7 @@ public class HomeActivity extends AppCompatActivity {
 
         userPhone = getIntent().getExtras().get("phone").toString();
         logoutBtn = (ImageView) findViewById(R.id.logout_btn);
+        changeData = (ImageView) findViewById(R.id.change_data_btn);
         plusRequestBtn = (ImageView) findViewById(R.id.plus_request_btn);
         layout = findViewById(R.id.see_requests_layout);
         noRequestsText = (TextView) findViewById(R.id.no_requests_made_textView);
@@ -62,6 +63,15 @@ public class HomeActivity extends AppCompatActivity {
                 Paper.book().destroy();
                 Intent logoutInt = new Intent(HomeActivity.this, MainActivity.class);
                 startActivity(logoutInt);
+            }
+        });
+
+        changeData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent changeInt = new Intent(HomeActivity.this, ChangeUserData.class);
+                changeInt.putExtra("phone", userPhone);
+                startActivity(changeInt);
             }
         });
 

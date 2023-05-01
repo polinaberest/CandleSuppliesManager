@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
-
+    tools:context=".SeeApprovedActivity">
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/app_bar_layout_home"
+        android:id="@+id/app_bar_layout_see_approved_requests"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:liftOnScroll="true"
@@ -18,7 +17,7 @@
             android:layout_height="match_parent">
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/home_toolbar"
+                android:id="@+id/see_requests_approved_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="15dp"
@@ -28,46 +27,36 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/toolbar_title"
+                    android:id="@+id/see_approved_requests_toolbar_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/comfortaa"
-                    android:text="Мої заявки"
+                    android:text="Схвалені заявки"
                     android:textColor="#000000"
-                    android:textSize="30sp" />
+                    android:textSize="27sp" />
 
 
             </androidx.appcompat.widget.Toolbar>
 
             <ImageView
-                android:id="@+id/logout_btn"
-                android:layout_width="65dp"
-                android:layout_height="50dp"
-                app:layout_constraintEnd_toEndOf="@id/home_toolbar"
-                app:layout_constraintBottom_toBottomOf="@id/home_toolbar"
-                android:layout_marginBottom="10dp"
-                app:srcCompat="@drawable/logout_btn_icon"
-               />
-
-            <ImageView
-                android:id="@+id/change_data_btn"
+                android:id="@+id/back_btn"
                 android:layout_width="65dp"
                 android:layout_height="45dp"
-                app:layout_constraintEnd_toStartOf="@id/logout_btn"
-                app:layout_constraintBottom_toBottomOf="@id/home_toolbar"
-                android:layout_marginBottom="13dp"
-                app:srcCompat="@drawable/acc_icon"
-                />
+                android:layout_marginStart="328dp"
+                android:layout_marginBottom="12dp"
+                app:layout_constraintBottom_toBottomOf="@id/see_requests_approved_toolbar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/back" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <TextView
-        android:id="@+id/no_requests_made_textView"
+        android:id="@+id/no_approved_textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/app_bar_layout_home"
+        android:layout_below="@id/app_bar_layout_see_approved_requests"
         android:layout_marginHorizontal="20dp"
         android:fontFamily="@font/comfortaa"
         android:paddingVertical="20dp"
@@ -79,11 +68,11 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/app_bar_layout_home">
+        android:layout_below="@id/app_bar_layout_see_approved_requests">
 
         <!-- add a LinearLayout inside ScrollView -->
         <LinearLayout
-            android:id="@+id/see_requests_layout"
+            android:id="@+id/see_approved_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -93,17 +82,5 @@
         </LinearLayout>
 
     </ScrollView>
-
-    <ImageView
-        android:id="@+id/plus_request_btn"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
-        android:src="@drawable/plus_btn" />
 
 </RelativeLayout>

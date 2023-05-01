@@ -1,0 +1,127 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChangeUserData">
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout_change_user_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:liftOnScroll="true"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/change_user_data_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/change_user_data_toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/comfortaa"
+                    android:text="Особистий кабінет"
+                    android:textColor="#000000"
+                    android:textSize="27sp" />
+
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <ImageView
+                android:id="@+id/user_back_btn"
+                android:layout_width="65dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="328dp"
+                android:layout_marginBottom="12dp"
+                app:layout_constraintBottom_toBottomOf="@id/change_user_data_toolbar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/back" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_bar_layout_change_user_data">
+
+        <!-- add a LinearLayout inside ScrollView -->
+        <LinearLayout
+            android:id="@+id/change_user_data_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- add your content here -->
+            <TextView
+                android:id="@+id/label_change"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/comfortaa"
+                android:text="Зміна даних в системі:"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
+
+            <EditText
+                android:id="@+id/change_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="0dp"
+                android:hint="Новий пароль"
+                android:inputType="textPassword"
+                android:paddingVertical="15dp"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textColorHint="#9C9C9C"
+                android:fontFamily="@font/comfortaa"/>
+
+            <LinearLayout
+                android:id="@+id/change_pass_btn"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="end"
+                android:orientation="horizontal"
+                android:textAlignment="gravity">
+
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/comfortaa"
+                    android:text="Змінити"
+
+                    android:textAlignment="gravity"
+                    android:textColor="@color/black"
+                    android:textFontWeight="600"
+                    android:textSize="22sp" />
+
+                <ImageView
+                    android:layout_width="250px"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/confirmation" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

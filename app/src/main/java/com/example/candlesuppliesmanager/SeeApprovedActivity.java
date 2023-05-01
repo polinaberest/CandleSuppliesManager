@@ -26,52 +26,38 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.paperdb.Paper;
 
-public class SeeRequestsActivity extends AppCompatActivity {
+public class SeeApprovedActivity extends AppCompatActivity {
 
-    private ImageView logoutAdminBtn, seeApproved;
-
+    private ImageView backBtn;
     private TextView noRequestsText;
-    //List<Order> orderList;
     private DatabaseReference databaseRef;
-
     private LinearLayout requestsLayout;
     private Query query;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_see_requests);
+        setContentView(R.layout.activity_see_approved);
 
-        logoutAdminBtn = (ImageView) findViewById(R.id.logout_admin_btn);
-        seeApproved = (ImageView) findViewById(R.id.see_approved_btn);
-        requestsLayout = findViewById(R.id.see_user_requests_layout);
-        noRequestsText = (TextView) findViewById(R.id.no_requests_usermade_textView);
+        backBtn = (ImageView) findViewById(R.id.back_btn);
+        requestsLayout = findViewById(R.id.see_approved_layout);
+        noRequestsText = (TextView) findViewById(R.id.no_approved_textView);
 
-        ShowUserRequests();
+        ShowApprovedRequests();
 
-        logoutAdminBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Paper.book().destroy();
-                Intent logoutInt = new Intent(SeeRequestsActivity.this, MainActivity.class);
-                startActivity(logoutInt);
-            }
-        });
-
-        seeApproved.setOnClickListener(new View.OnClickListener() {
+        backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent seeApprInt = new Intent(SeeRequestsActivity.this, SeeApprovedActivity.class);
-                startActivity(seeApprInt);
+                Intent seeReqInt = new Intent(SeeApprovedActivity.this, SeeRequestsActivity.class);
+                startActivity(seeReqInt);
             }
         });
     }
 
-    private void ShowUserRequests() {
+    private void ShowApprovedRequests() {
         databaseRef = FirebaseDatabase.getInstance().getReference("Requests");
-        query = databaseRef.orderByChild("isSeen").equalTo(false);
+        query = databaseRef.orderByChild("isApproved").equalTo(true);
         List<Order> orderList = new ArrayList<>();
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -108,8 +94,6 @@ public class SeeRequestsActivity extends AppCompatActivity {
                 // обработка ошибок
             }
         });
-
-
     }
 
     private void InsertListItemstoLayout(List<Order> orderList) {
@@ -133,7 +117,7 @@ public class SeeRequestsActivity extends AppCompatActivity {
             String id = order.getRequestID();
             textView.setTag(id);
 
-            int color = R.color.ivory;
+            int color = R.color.green;
             if (order.getRole().trim().equals("Військовослужбовець")) {
                 color = R.color.light_orange;
             }
@@ -173,40 +157,14 @@ public class SeeRequestsActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     // Получаем id заказа
                     String reqId = textView.getTag().toString();
-                    String title = "Розгляд заявки";
+                    String title = "Перегляд заявки";
                     String description = order.toStringFull();
 
                     // Отображаем диалоговое окно с информацией о заказе
-                    AlertDialog.Builder builder = new AlertDialog.Builder(SeeRequestsActivity.this);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(SeeApprovedActivity.this);
                     builder.setTitle(title);
                     builder.setMessage(description);
-                    builder.setPositiveButton("Підтвердити", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            // Обработка нажатия кнопки "Подтвердить"
-                            DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Requests").child(reqId);
 
-                            // Обновляем поле isSeen
-                            ref.child("isSeen").setValue(true);
-                            ref.child("isApproved").setValue(true);
-                        }
-                    });
-
-
-
-                    builder.setNegativeButton("Відхилити", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            // Обработка нажатия кнопки "Отменить"
-                            // Получаем ссылку на запись в Firebase Realtime Database
-                            DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Requests").child(reqId);
-
-                            // Обновляем поле isSeen
-                            ref.child("isSeen").setValue(true);
-                            ref.child("isApproved").setValue(false);
-
-                        }
-                    });
                     builder.setNeutralButton("Закрити", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -216,7 +174,7 @@ public class SeeRequestsActivity extends AppCompatActivity {
                     });
                     AlertDialog dialog = builder.create();
 
-                   dialog.show();
+                    dialog.show();
                 }
             });
 

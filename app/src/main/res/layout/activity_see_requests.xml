@@ -34,21 +34,28 @@
                     android:fontFamily="@font/comfortaa"
                     android:text="Поточні заявки"
                     android:textColor="#000000"
-                    android:textSize="30sp" />
+                    android:textSize="27sp" />
 
 
             </androidx.appcompat.widget.Toolbar>
 
             <ImageView
                 android:id="@+id/logout_admin_btn"
-                android:layout_width="92dp"
-                android:layout_height="48dp"
-                app:layout_constraintEnd_toEndOf="@id/see_requests_toolbar"
+                android:layout_width="65dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
                 app:layout_constraintBottom_toBottomOf="@id/see_requests_toolbar"
-                android:layout_marginBottom="15dp"
-                app:srcCompat="@drawable/logout_btn_icon"
-                tools:layout_editor_absoluteX="319dp"
-                tools:layout_editor_absoluteY="16dp" />
+                app:layout_constraintEnd_toEndOf="@id/see_requests_toolbar"
+                app:srcCompat="@drawable/logout_btn_icon" />
+
+            <ImageView
+                android:id="@+id/see_approved_btn"
+                android:layout_width="65dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="@id/see_requests_toolbar"
+                app:layout_constraintEnd_toStartOf="@+id/logout_admin_btn"
+                app:srcCompat="@drawable/approved" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
