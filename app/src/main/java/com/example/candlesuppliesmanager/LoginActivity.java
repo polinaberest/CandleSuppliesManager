@@ -3,8 +3,13 @@ package com.example.candlesuppliesmanager;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.content.Intent;
 import android.text.TextUtils;
@@ -25,6 +30,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.rey.material.widget.CheckBox;
 
 import org.apache.commons.lang3.StringUtils;
+
+import java.util.HashMap;
 
 import io.paperdb.Paper;
 
@@ -51,6 +58,14 @@ public class LoginActivity extends AppCompatActivity {
 
         Paper.init(this);
 
+        //
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            NotificationChannel channel = new NotificationChannel("My notification", "My notification", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+        //
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,6 +80,8 @@ public class LoginActivity extends AppCompatActivity {
                 clientLink.setVisibility(View.VISIBLE);
                 loginButton.setText("Увійти як адміністратор");
                 parentDBName = "Admins";
+
+
             }
         });
 
@@ -124,12 +141,23 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this, "Авторизація успішна!", Toast.LENGTH_SHORT).show();
                             Intent homeInt = new Intent(LoginActivity.this, HomeActivity.class);
                             homeInt.putExtra("phone", userPhone);
+                            //заявки переглянуто
+                            NotificationCompat.Builder builder = new NotificationCompat.Builder(LoginActivity.this, "My notification");
+                            builder.setContentTitle("Окопні свічки");
+                            builder.setContentText("Наявні нові розглянуті заявки");
+                            builder.setSmallIcon(R.drawable.flame);
+                            builder.setAutoCancel(true);
+
+                            NotificationManagerCompat managerCompat = NotificationManagerCompat.from(LoginActivity.this);
+                            managerCompat.notify(1, builder.build());
+
                             startActivity(homeInt);
                         }
                         else if (parentDBName.equals("Admins")) {
                             Toast.makeText(LoginActivity.this, "Авторизація адміністратора успішна!", Toast.LENGTH_SHORT).show();
                             Intent admInt = new Intent(LoginActivity.this, SeeRequestsActivity.class);
                             //admInt.putExtra("phone", userPhone);
+                            //наявні нові заявки
                             startActivity(admInt);
                         }
                     }
